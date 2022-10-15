@@ -1,0 +1,29 @@
+<table class="table text-center">
+    <thead>
+        <tr >
+            <td>Type</td>
+            <td>Name</td>
+            <td>Price</td>
+            <td>Stock</td>
+            <td>Quantity</td>
+            <td>Cart</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let wine of wines">
+            <td>{{wine.type}}</td>
+            <td>{{wine.name}}</td>
+            <td>{{wine.price | currency}}</td>
+            <td>
+                <span class="badge text-bg-warning" *ngIf="wine.stock==0" >No stock</span>
+                <span *ngIf="wine.stock>0">{{wine.stock}}</span>
+            </td>
+            <td>
+                <app-integer-input *ngIf="wine.stock>0" [(quantity)]="wine.quantity" [max]="wine.stock"></app-integer-input>
+            </td>
+            <td>
+                <button type="button" class="btn btn-primary" (click)="addToCart(wine)">Add to cart</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

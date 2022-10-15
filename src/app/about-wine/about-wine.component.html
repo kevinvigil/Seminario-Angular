@@ -1,0 +1,23 @@
+<table class="table text-center">
+    <thead>
+        <tr>
+            <td>
+                <p>Type</p>
+            </td>
+            <td>
+                <p>description</p>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let wc of wc">
+            <td>
+                <p>{{wc.type}}</p>
+            </td>
+            <td>
+                <p>{{wc.description}}</p>
+            </td>
+        </tr>
+
+    </tbody>
+</table>
